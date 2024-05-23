@@ -6,12 +6,13 @@ const kafka = new Kafka({
 });
 
 const consumer = kafka.consumer({ groupId: "test-group" });
+
 const run = async () => {
   await consumer.connect();
   await consumer.subscribe({ topic: "test", fromBeginning: true });
 
   await consumer.run({
-    eachMessage: async ({ topic, partition, message }) => {
+    eachMessage: async ({ partition, message }) => {
       console.log("Received: ", {
         partition,
         offset: message.offset,
@@ -20,4 +21,5 @@ const run = async () => {
     },
   });
 };
+
 run().catch(console.error);

@@ -4,7 +4,7 @@
 
 ### How to run:
 
-Step 1: Setup Kafka (I used the following blog): https://blog.soshace.com/the-ultimate-introduction-to-kafka-with-javascript/
+Step 1: To setup Kafka run `docker-compose -f ./docker-compose.kafka.yml up -d`
 
 Step 2: Onc you have both the kafka-server and the kafka-zookeeper running, you can start the producer using `ts-node src/producer.ts`
 

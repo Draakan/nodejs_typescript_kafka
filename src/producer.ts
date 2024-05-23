@@ -18,6 +18,8 @@ async function sendPayload(input: string) {
       topic: "test",
       messages: [{ key: "test", value: input }],
     });
+
+    console.info("Data has been successfully sent!")
   } catch (e) {
     console.error("Caught Error while sending:", e);
   }
@@ -25,8 +27,10 @@ async function sendPayload(input: string) {
 
 async function main() {
   await producer.connect();
+
   while (true) {
     let input = await reader.question("Data: ");
+
     if (input === "exit") {
       process.exit(0);
     }
