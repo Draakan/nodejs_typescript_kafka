@@ -1,5 +1,5 @@
 import reader from "readline-sync";
-import { Kafka } from "kafkajs";
+import { Kafka, Partitioners } from "kafkajs";
 
 const kafka = new Kafka({
   clientId: "test-app",
@@ -10,6 +10,7 @@ const producer = kafka.producer({
   maxInFlightRequests: 1,
   idempotent: true,
   transactionalId: "uniqueProducerId",
+  createPartitioner: Partitioners.LegacyPartitioner,
 });
 
 async function sendPayload(input: string) {
