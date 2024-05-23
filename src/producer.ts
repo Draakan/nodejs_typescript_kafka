@@ -30,11 +30,12 @@ async function main() {
   await producer.connect();
 
   while (true) {
-    let input = await reader.question("Data: ");
+    const input = await reader.question("Data: ");
 
     if (input === "exit") {
       process.exit(0);
     }
+
     try {
       await sendPayload(input);
     } catch (e) {

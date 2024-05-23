@@ -11,3 +11,5 @@ Step 2: Onc you have both the kafka-server and the kafka-zookeeper running, you 
 Step 3: In a new terminal window, run `ts-node src/consumer.ts` to start the client. 
 
 Step 4: Go back to the producer, and start typing your data. 
+
+Step 5: If you want to reset offset and get all the messages from the beginning run `ts-node src/admin.ts`
